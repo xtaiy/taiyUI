@@ -5,8 +5,8 @@
       <h1>taiyUI</h1>
       <h2>一个很不错的 UI</h2>
       <p class="actions">
-        <a href="">Github</a>
-        <a href="">开始</a>
+        <a href="https://github.com">Github</a>
+        <router-link to="/doc">开始</router-link>
       </p>
     </div>
   </div>
