@@ -1,6 +1,7 @@
 <template>
     <button class="taiy-button" :class="classes" :disabled="disabled">
-      <slot/>
+      <span v-if="loading" class="taiy-loadingIndicator"></span>
+      <slot />
     </button>
 </template>
 
@@ -24,6 +25,10 @@ export default {
    disabled:{
      type: Boolean,
      default: false,
+   },
+   loading: {
+     type: Boolean,
+     default: false
    }
  },
   setup(props){
@@ -47,7 +52,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
-$gray: gray;
+$grey: grey;
 .taiy-button {
   box-sizing: border-box;
   height: $h;
@@ -77,33 +82,34 @@ $gray: gray;
   &::-moz-focus-inner {
     border: 0;
   }
-  &.taiy-theme-link{
+  &.taiy-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $blue;
-    &:hover,&:focus{
+    &:hover,
+    &:focus {
       color: lighten($blue, 10%);
     }
   }
-  &.taiy-theme-text{
+  &.taiy-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
-    &:hover,&:focus{
-      background: darken(white, 5%);;
+    &:hover,
+    &:focus {
+      background: darken(white, 5%);
     }
   }
-  &.taiy-size-big{
+  &.taiy-size-big {
     font-size: 24px;
     height: 48px;
-    padding: 0 16px
+    padding: 0 16px;
   }
-  &.taiy-size-small{
+  &.taiy-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
   }
-
   &.taiy-theme-button {
     &.taiy-level-main {
       background: $blue;
@@ -151,22 +157,37 @@ $gray: gray;
       }
     }
   }
-
   &.taiy-theme-button {
     &[disabled] {
       cursor: not-allowed;
-      color: $gray;
+      color: $grey;
       &:hover {
-        border-color: $gray;
+        border-color: $grey;
       }
     }
   }
   &.taiy-theme-link, &.taiy-theme-text {
     &[disabled] {
       cursor: not-allowed;
-      color: $gray;
+      color: $grey;
     }
   }
-
+  > .taiy-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    border-radius: 7px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: taiy-spin 1s infinite linear;
+    position: relative;
+  }
+}
+@keyframes taiy-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
 }
 </style>
