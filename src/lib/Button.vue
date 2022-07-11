@@ -1,5 +1,5 @@
 <template>
-    <button class="taiy-button" :class="classes">
+    <button class="taiy-button" :class="classes" :disabled="disabled">
       <slot/>
     </button>
 </template>
@@ -21,6 +21,10 @@ export default {
      type: String,
      default: "normal",
    },
+   disabled:{
+     type: Boolean,
+     default: false,
+   }
  },
   setup(props){
    const {theme,size,level}=props
@@ -43,6 +47,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$gray: gray;
 .taiy-button {
   box-sizing: border-box;
   height: $h;
@@ -146,5 +151,22 @@ $red: red;
       }
     }
   }
+
+  &.taiy-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $gray;
+      &:hover {
+        border-color: $gray;
+      }
+    }
+  }
+  &.taiy-theme-link, &.taiy-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $gray;
+    }
+  }
+
 }
 </style>

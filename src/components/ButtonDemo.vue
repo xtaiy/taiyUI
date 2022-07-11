@@ -23,7 +23,7 @@
     <Button theme="text"> 正常按钮 </Button>
     <Button theme="text" size="small"> 小按钮 </Button>
   </div>
-  <h1>示例3</h1>
+  <h1> 示例3 </h1>
   <div>
     <div>
       <Button level="main">主要按钮</Button>
@@ -40,6 +40,12 @@
       <Button theme="text">普通文字按钮</Button>
       <Button theme="text" level="danger">危险文字按钮</Button>
     </div>
+  </div>
+  <h1> 示例4 </h1>
+  <div>
+    <Button disabled>禁用按钮</Button>
+    <Button theme="link" disabled>禁用链接按钮</Button>
+    <Button theme="text" disabled>禁用按钮</Button>
   </div>
 </template>
 
