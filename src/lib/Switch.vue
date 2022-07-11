@@ -5,13 +5,11 @@
 </template>
 
 <script lang="ts">
-  import ButtonDemo from '../components/ButtonDemo.vue';
 
   export default {
     props:{
       value:Boolean
     },
-    components: {ButtonDemo},
     setup(props,context){
       const toggle=()=>{
          context.emit('update:value',!props.value)
