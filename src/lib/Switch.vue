@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button :class="{checked:value}" @click="toggle"> <span></span> </button>
+    <button class="taiy-switch" :class="{'taiy-checked':value}" @click="toggle"> <span></span> </button>
   </div>
 </template>
 
@@ -19,10 +19,10 @@
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   $h:22px;
   $h2:$h - 4px;
-  button{
+  .taiy-switch{
     height: $h;
     width: $h * 2;
     border:none;
@@ -40,16 +40,16 @@
     border-radius: $h/2;
     transition: all 250ms;
   }
-  button.checked{
+  button.taiy-checked{
     background: #1890ff;
   }
-  button.checked >span{
+  button.taiy-checked >span{
     left: calc(100% - #{$h2} - 2px);
   }
   button:active{
     > span {width: $h2 + 4px;}
   }
-  button.checked:active{
+  button.taiy-checked:active{
     > span {width: $h2 + 4px; margin-left: -4px;}
   }
 </style>
