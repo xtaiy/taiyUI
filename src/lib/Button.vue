@@ -1,16 +1,17 @@
 <template>
-  <div>
-    <button>
+    <button class="taiy-button" :class="`theme-${theme}`">
       <slot/>
     </button>
-  </div>
 </template>
 
 <script lang="ts">
 export default {
-  setup(){
-
-  }
+ props:{
+   theme:{
+     type:String,
+     default:'button'
+   }
+ }
 }
 </script>
 
