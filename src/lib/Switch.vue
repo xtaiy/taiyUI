@@ -14,7 +14,7 @@
     components: {ButtonDemo},
     setup(props,context){
       const toggle=()=>{
-         context.emit('update:value',!props.value)
+         context.emit('input',!props.value)
       }
       return {toggle}
     }
