@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="taiy-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="taiy-dialog-wrapper">
-      <div class="taiy-dialog">
-        <header>
-          <slot name="title"></slot>
-          <span class="taiy-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="taiy-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="taiy-dialog-wrapper">
+        <div class="taiy-dialog">
+          <header>
+            <slot name="title"></slot>
+            <span class="taiy-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 
 </template>
