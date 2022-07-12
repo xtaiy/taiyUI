@@ -1,10 +1,10 @@
 <template>
   <div class="taiy-tabs">
     <div class="taiy-tabs-nav">
-      <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item">{{title}}</div>
+      <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item" :class="{selected:title===selected}" @click="select(title)">{{title}}</div>
     </div>
     <div class=" taiy-tabs-content">
-      <component v-for="(c,index) in defaults" :is="c" :key="index" class="taiy-tabs-content-item"/>
+      <component  :is="current" :key="current.props.title" />
     </div>
   </div>
 
@@ -12,7 +12,13 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
+import {computed} from 'vue';
 export default{
+  props:{
+    selected:{
+      type:String
+    }
+  },
   setup(props,context){
     const defaults=context.slots.default()
     defaults.forEach((tag)=>{
@@ -20,10 +26,16 @@ export default{
         throw new Error('Tabs 子标签必须是 Tab')
       }
     })
+    const current=computed(()=>{
+      return defaults.find(tag=>tag.props.title===props.selected)
+    })
     const titles=defaults.map(tag=>{
       return tag.props.title
     })
-    return {defaults,titles}
+    const select=(title)=>{
+      context.emit('update:selected',title)
+    }
+    return {defaults,titles,current,select}
   }
 }
 </script>
