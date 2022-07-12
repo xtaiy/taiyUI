@@ -1,7 +1,14 @@
 <template>
   <div>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="visible" :closeOnClickOverlay="false" :ok="f1" :cancel="f2"/>
+    <Dialog v-model:visible="visible" :closeOnClickOverlay="false" :ok="f1" :cancel="f2">
+      <template v-slot:content>
+        <p>第一行字</p>
+      </template>
+      <template v-slot:title>
+        <strong>加粗的标题</strong>
+      </template>
+    </Dialog>
   </div>
 </template>
 
