@@ -1,6 +1,6 @@
 <template>
   <div class="taiy-tabs">
-    <div class="taiy-tabs-nav">
+    <div class="taiy-tabs-nav" ref="container">
       <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item"
        :class="{selected:title===selected}"
        @click="select(title)"
@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import {computed, onMounted, ref} from 'vue';
+import {computed, onMounted, onUpdated, ref} from 'vue';
 export default{
   props:{
     selected:{
@@ -27,12 +27,23 @@ export default{
   setup(props,context){
     const navItems=ref<HTMLDivElement[]>([])
     const indicator=ref<HTMLDivElement>(null)
-    onMounted(()=>{
+    const container = ref<HTMLDivElement>(null)
+
+    const x=()=>{
       const divs=navItems.value
       const result = divs.filter(div=>div.classList.contains('selected'))[0]
       const {width}=result.getBoundingClientRect()
       indicator.value.style.width=width+'px'
-    })
+      const {left:left1}=container.value.getBoundingClientRect()
+      const {left:left2}=result.getBoundingClientRect()
+      const left=left2-left1
+      indicator.value.style.left=left + 'px'
+    }
+
+    onMounted(x)
+
+    onUpdated(x)
+
     const defaults=context.slots.default()
     defaults.forEach((tag)=>{
       if(tag.type!==Tab){
@@ -48,7 +59,7 @@ export default{
     const select=(title)=>{
       context.emit('update:selected',title)
     }
-    return {defaults,titles,current,select,navItems,indicator}
+    return {defaults,titles,current,select,navItems,indicator,container}
   }
 }
 </script>
@@ -82,6 +93,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 100px;
+      transition: all 250ms;
     }
   }
   &-content {
