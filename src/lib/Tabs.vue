@@ -4,7 +4,7 @@
       <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item"
        :class="{selected:title===selected}"
        @click="select(title)"
-       :ref="el=>{if(el) navItems[index]=el}"
+       :ref="el=>{if(title===selected) selectedItem=el}"
       >{{title}}</div>
       <div class="taiy-tabs-nav-indicator" ref="indicator"></div>
     </div>
@@ -25,17 +25,15 @@ export default{
     }
   },
   setup(props,context){
-    const navItems=ref<HTMLDivElement[]>([])
+    const selectedItem=ref<HTMLDivElement>(null)
     const indicator=ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
 
     const x=()=>{
-      const divs=navItems.value
-      const result = divs.filter(div=>div.classList.contains('selected'))[0]
-      const {width}=result.getBoundingClientRect()
+      const {width}=selectedItem.value.getBoundingClientRect()
       indicator.value.style.width=width+'px'
       const {left:left1}=container.value.getBoundingClientRect()
-      const {left:left2}=result.getBoundingClientRect()
+      const {left:left2}=selectedItem.value.getBoundingClientRect()
       const left=left2-left1
       indicator.value.style.left=left + 'px'
     }
@@ -59,7 +57,7 @@ export default{
     const select=(title)=>{
       context.emit('update:selected',title)
     }
-    return {defaults,titles,current,select,navItems,indicator,container}
+    return {defaults,titles,current,select,indicator,container,selectedItem}
   }
 }
 </script>
