@@ -39,6 +39,8 @@ $border-radius:4px;
 $color: #007974;
 .topnavAndBanner{
   background: linear-gradient(135deg, rgba(227,255,253,1) 0%, rgba(183,233,230,1) 100%);
+  border-bottom-left-radius: 50% 40px ;
+  border-bottom-right-radius: 50% 40px ;
 }
 .features{
   >svg{
