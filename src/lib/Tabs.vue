@@ -1,7 +1,12 @@
 <template>
   <div class="taiy-tabs">
     <div class="taiy-tabs-nav">
-      <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item" :class="{selected:title===selected}" @click="select(title)">{{title}}</div>
+      <div v-for="(title,index) in titles" :key="index" class="taiy-tabs-nav-item"
+       :class="{selected:title===selected}"
+       @click="select(title)"
+       :ref="el=>{if(el) navItems[index]=el}"
+      >{{title}}</div>
+      <div class="taiy-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class=" taiy-tabs-content">
       <component  :is="current" :key="current.props.title" />
@@ -12,7 +17,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue'
-import {computed} from 'vue';
+import {computed, onMounted, ref} from 'vue';
 export default{
   props:{
     selected:{
@@ -20,6 +25,14 @@ export default{
     }
   },
   setup(props,context){
+    const navItems=ref<HTMLDivElement[]>([])
+    const indicator=ref<HTMLDivElement>(null)
+    onMounted(()=>{
+      const divs=navItems.value
+      const result = divs.filter(div=>div.classList.contains('selected'))[0]
+      const {width}=result.getBoundingClientRect()
+      indicator.value.style.width=width+'px'
+    })
     const defaults=context.slots.default()
     defaults.forEach((tag)=>{
       if(tag.type!==Tab){
@@ -35,7 +48,7 @@ export default{
     const select=(title)=>{
       context.emit('update:selected',title)
     }
-    return {defaults,titles,current,select}
+    return {defaults,titles,current,select,navItems,indicator}
   }
 }
 </script>
@@ -49,6 +62,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
     &-item {
       padding: 8px 0;
       margin: 0 16px;
@@ -59,6 +73,15 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
     }
   }
   &-content {
