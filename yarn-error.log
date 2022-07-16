@@ -1,8 +1,8 @@
 Arguments: 
-  G:\ruanjiananzhuang\nodejs\node.exe G:\ruanjiananzhuang\yarn\bin\yarn.js add @types/vue-prism-component
+  G:\ruanjiananzhuang\nodejs\node.exe G:\ruanjiananzhuang\yarn\bin\yarn.js add @types/vue-prism-component --dev
 
 PATH: 
-  C:\ruanjiananzhuang\Cmder\vendor\git-for-windows\mingw64\bin;C:\ruanjiananzhuang\Cmder\vendor\git-for-windows\usr\bin;C:\Users\taiy\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Microsoft SQL Server\110\Tools\Binn;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\ruanjiananzhuang\x86_64-8.1.0-release-win32-seh-rt_v6-rev0\mingw64\bin;C:\ruanjiananzhuang\Java\jdk-15.0.2\bin;C:\ruanjiananzhuang\Jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;G:\ruanjiananzhuang\RunningCheeseChrome.1\App\chrome.exe;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn;C:\Program Files\Microsoft SQL Server\120\Tools\Binn;C:\Program Files\Microsoft SQL Server\120\DTS\Binn;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit;C:\ruanjiananzhuang\r2021a\runtime\win64;C:\ruanjiananzhuang\r2021a\bin;C:\ruanjiananzhuang\r2021a\polyspace\bin;G:\ruanjiananzhuang\nodejs;G:\ruanjiananzhuang\yarn\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Users\taiy\AppData\Local\Microsoft\WindowsApps;C:\ruanjiananzhuang\Qt\5.15.1\msvc2019_64\bin;C:\ruanjiananzhuang\Qt\Tools\QtCreator\bin;G:\ruanjiananzhuang\SSH secure shell client;C:\ruanjiananzhuang\Microsoft VS Code\bin;C:\Users\taiy\AppData\Roaming\npm;C:\Users\taiy\AppData\Local\Yarn\bin;C:\ruanjiananzhuang\WebStorm 2021.3.1\bin;D:\我的项目\taiyUI\node_modules\.bin
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\ruanjiananzhuang\x86_64-8.1.0-release-win32-seh-rt_v6-rev0\mingw64\bin;C:\ruanjiananzhuang\Java\jdk-15.0.2\bin;C:\ruanjiananzhuang\Jre\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;G:\ruanjiananzhuang\RunningCheeseChrome.1\App\chrome.exe;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\ruanjiananzhuang\r2021a\runtime\win64;C:\ruanjiananzhuang\r2021a\bin;C:\ruanjiananzhuang\r2021a\polyspace\bin;G:\ruanjiananzhuang\nodejs\;G:\ruanjiananzhuang\yarn\bin\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Users\taiy\AppData\Local\Microsoft\WindowsApps;C:\ruanjiananzhuang\Qt\5.15.1\msvc2019_64\bin;C:\ruanjiananzhuang\Qt\Tools\QtCreator\bin;G:\ruanjiananzhuang\SSH secure shell client;C:\ruanjiananzhuang\Microsoft VS Code\bin;C:\Users\taiy\AppData\Roaming\npm;C:\Users\taiy\AppData\Local\Yarn\bin;C:\ruanjiananzhuang\WebStorm 2021.3.1\bin;
 
 Yarn version: 
   1.22.5
@@ -37,6 +37,7 @@ npm manifest:
     "dependencies": {
       "github-markdown-css": "^5.1.0",
       "marked": "^1.1.1",
+      "prismjs": "^1.28.0",
       "vue": "^3.0.0-rc.1",
       "vue-prism-component": "^2.0.0",
       "vue-router": "4"
@@ -2675,6 +2676,11 @@ Lockfile:
     dependencies:
       posthtml-parser "^0.2.0"
       posthtml-render "^1.0.5"
+  
+  prismjs@^1.28.0:
+    version "1.28.0"
+    resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.28.0.tgz#0d8f561fa0f7cf6ebca901747828b149147044b6"
+    integrity sha512-8aaXdYvl1F7iC7Xm1spqSaY/OJBpYW3v+KJ+F17iYxvdc8sfjW194COK5wVhMZX45tGteiBQgdvD/nhxcRwylw==
   
   pump@^3.0.0:
     version "3.0.0"

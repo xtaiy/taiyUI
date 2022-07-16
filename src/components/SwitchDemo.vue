@@ -22,7 +22,7 @@
         <Button>查看代码</Button>
       </div>
       <div class="demo-code">
-        <pre>{{Switch2Demo.__sourceCode}}</pre>
+        <pre class="language-html" v-html="Prism.highlight(Switch2Demo.__sourceCode, Prism.languages.html, 'html')" />
       </div>
     </div>
   </div>
@@ -34,19 +34,15 @@ import Button from '../lib/Button.vue'
 import {ref} from 'vue';
 import Switch1Demo from './Switch1.demo.vue'
 import Switch2Demo from './Switch2.demo.vue'
-import "../prismjs/prism.js";
-// 引用css
-import "../prismjs/themes/prism-okaidia.css";
-//prismjs在window对象下有Prism属性
-// 使用any类型骗过ts检测
-const P = (window as any).Prism;
-
+import 'prismjs'
+import 'prismjs/themes/prism.css'
+const Prism = (window as any).Prism
 
 export default {
   components: {Button},
   setup(){
     const bool=ref(true)
-    return {bool,Switch1Demo,Switch2Demo,P}
+    return {bool,Switch1Demo,Switch2Demo,Prism}
   }
 }
 </script>
