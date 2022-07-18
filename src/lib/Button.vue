@@ -1,51 +1,48 @@
 <template>
-    <button class="taiy-button" :class="classes" :disabled="disabled">
-      <span v-if="loading" class="taiy-loadingIndicator"></span>
-      <slot />
-    </button>
+  <button class="taiy-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="taiy-loadingIndicator"></span>
+    <slot />
+  </button>
 </template>
-
 <script lang="ts">
-import {computed} from 'vue';
-
+import { computed } from "vue";
 export default {
- props:{
-   theme:{
-     type:String,
-     default:'button'
-   },
-   size:{
-     type:String,
-     default: 'normal'
-   },
-   level: {
-     type: String,
-     default: "normal",
-   },
-   disabled:{
-     type: Boolean,
-     default: false,
-   },
-   loading: {
-     type: Boolean,
-     default: false
-   }
- },
-  setup(props){
-   const {theme,size,level}=props
-   const classes=computed(()=>{
-     return {
-       [`taiy-theme-${theme}`]:theme,
-       [`taiy-size-${size}`]:size,
-       [`taiy-level-${level}`]: level,
-     }
-   })
-    return {classes}
-  }
-}
+  props: {
+    theme: {
+      type: String,
+      default: "button",
+    },
+    size: {
+      type: String,
+      default: "normal",
+    },
+    level: {
+      type: String,
+      default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
+  setup(props) {
+    const { theme, size, level } = props;
+    const classes = computed(() => {
+      return {
+        [`taiy-theme-${theme}`]: theme,
+        [`taiy-size-${size}`]: size,
+        [`taiy-level-${level}`]: level,
+      };
+    });
+    return { classes };
+  },
+};
 </script>
-
-<style lang="scss" >
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
@@ -176,18 +173,16 @@ $grey: grey;
     width: 14px;
     height: 14px;
     display: inline-block;
-    margin-right: 8px;
-    margin-bottom: 4px;
-    border-radius: 7px;
+    margin-right: 4px;
+    border-radius: 8px; 
     border-color: $blue $blue $blue transparent;
     border-style: solid;
     border-width: 2px;
     animation: taiy-spin 1s infinite linear;
-    position: relative;
   }
 }
 @keyframes taiy-spin {
-  0%{transform: rotate(0deg)}
-  100%{transform: rotate(360deg)}
+  0%{transform: rotate(0deg)} 
+  100%{transform: rotate(360deg)} 
 }
 </style>

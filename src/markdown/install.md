@@ -12,4 +12,4 @@ npm install king-ui
 yarn add king-ui
 ```
 
-下一节：[开始使用](#/doc/get-start)
+下一节：[开始使用](#/doc/get-started)
