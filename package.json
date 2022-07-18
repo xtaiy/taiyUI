@@ -1,6 +1,8 @@
 {
-  "name": "taiyUI",
-  "version": "0.0.0",
+  "name": "taiy-ui",
+  "version": "0.0.1",
+  "files": ["dist/lib/*"],
+  "main": "dist/lib/taiy.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
