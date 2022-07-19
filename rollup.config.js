@@ -21,7 +21,8 @@ export default {
         scss({ include: /\.scss$/, sass: dartSass }),
         vue({
             include: /\.vue$/,
-        }), esbuild({
+        }),
+        esbuild({
             include: /\.[jt]s$/,
             minify: process.env.NODE_ENV === 'production',
             target: 'es2015'
